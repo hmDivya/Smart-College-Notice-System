@@ -1,0 +1,242 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Staff Dashboard | MCA Department Notice System</title>
+
+    <link rel="stylesheet" href="./style.css">
+
+    <!-- Chart.js for dashboard graphs -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body class="admin-page">
+
+    <header class="dashboard-header">
+
+        <div class="dashboard-brand">
+            <h1>MCA Department Notice System</h1>
+            <p>Staff Management Dashboard</p>
+        </div>
+
+        <div class="staff-info">
+
+            <div class="staff-details">
+                <strong id="staffEmail">Loading account...</strong>
+                <span id="staffRole">Verifying access</span>
+            </div>
+
+            <button id="logoutButton" class="logout-button">
+                Logout
+            </button>
+
+        </div>
+
+    </header>
+
+    <main class="dashboard-container">
+
+        <section class="dashboard-heading">
+            <h2 id="dashboardTitle">Notice Management</h2>
+            <p>Publish, manage and monitor official department announcements.</p>
+        </section>
+
+        <!-- DASHBOARD STATISTICS -->
+
+        <section class="dashboard-stats">
+
+            <div class="stat-card">
+                <span>Total Published Notices</span>
+                <strong id="totalNotices">0</strong>
+            </div>
+
+            <div class="stat-card">
+                <span>Published This Month</span>
+                <strong id="monthlyNotices">0</strong>
+            </div>
+
+            <div class="stat-card">
+                <span>Your Account</span>
+                <strong id="accountRole">Staff</strong>
+            </div>
+
+            
+
+        </section>
+
+        <!-- NOTICE ANALYTICS -->
+
+        <section class="analytics-section">
+
+            <div class="analytics-heading">
+                <div>
+                    <h2>Notice Analytics</h2>
+                    <p>Visual overview of published college notices.</p>
+                </div>
+            </div>
+
+            <div class="analytics-grid">
+
+                <!-- CATEGORY GRAPH -->
+
+                <div class="analytics-card">
+                    <h3>Category-wise Notices</h3>
+                    <p class="chart-description">
+                        Number of notices published in each category.
+                    </p>
+
+                    <div class="chart-container">
+                        <canvas id="categoryChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- MONTHLY GRAPH -->
+
+                <div class="analytics-card">
+                    <h3>Monthly Published Notices</h3>
+                    <p class="chart-description">
+                        Notice publication activity over the last six months.
+                    </p>
+
+                    <div class="chart-container">
+                        <canvas id="monthlyChart"></canvas>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- NOTICE MANAGEMENT -->
+
+        <section class="dashboard-grid">
+
+            <!-- ADD NOTICE -->
+
+            <div class="panel">
+
+                <h2>Publish a Notice</h2>
+
+                <p class="panel-subtitle">
+                    Create a new announcement for students.
+                </p>
+
+                <form id="noticeForm">
+
+                    <label for="title">Notice Title</label>
+                    <input
+                        type="text"
+                        id="title"
+                        placeholder="Enter notice title"
+                        required
+                    >
+
+                    <label for="description">Description</label>
+                    <textarea
+                        id="description"
+                        placeholder="Enter complete notice details"
+                        required
+                    ></textarea>
+
+                    <label for="category">Category</label>
+                    <select id="category" required>
+                        <option value="">Select Category</option>
+                        <option value="Examination">Examination</option>
+                        <option value="Event">Event</option>
+                        <option value="Circular">Circular</option>
+                        <option value="Placement">Placement</option>
+                        <option value="General">General</option>
+                    </select>
+
+                    <label for="date">Notice Date</label>
+                    <input type="date" id="date" required>
+
+                    <button type="submit" class="primary-button">
+                        Publish Notice
+                    </button>
+
+                </form>
+
+                <p id="message"></p>
+
+            </div>
+
+            <!-- MANAGE NOTICES -->
+
+            <div class="panel">
+
+                <h2>Manage Notices</h2>
+
+                <p class="panel-subtitle">
+                    View, update or remove published announcements.
+                </p>
+
+                <div id="adminNoticeList">
+                    Loading notices...
+                </div>
+
+            </div>
+
+        </section>
+
+        <a href="./index.html" class="dashboard-back">
+            ← View Student Notice Board
+        </a>
+
+    </main>
+
+    <!-- EDIT NOTICE DIALOG -->
+
+    <dialog id="editDialog" class="edit-dialog">
+
+        <h2>Edit Notice</h2>
+
+        <form id="editForm">
+
+            <label for="editTitle">Notice Title</label>
+            <input type="text" id="editTitle" required>
+
+            <label for="editDescription">Description</label>
+            <textarea id="editDescription" required></textarea>
+
+            <label for="editCategory">Category</label>
+            <select id="editCategory" required>
+                <option value="Examination">Examination</option>
+                <option value="Event">Event</option>
+                <option value="Circular">Circular</option>
+                <option value="Placement">Placement</option>
+                <option value="General">General</option>
+            </select>
+
+            <label for="editDate">Notice Date</label>
+            <input type="date" id="editDate" required>
+
+            <div class="dialog-actions">
+
+                <button type="submit" class="primary-button">
+                    Save Changes
+                </button>
+
+                <button
+                    type="button"
+                    id="cancelEdit"
+                    class="secondary-button"
+                >
+                    Cancel
+                </button>
+
+            </div>
+
+        </form>
+
+    </dialog>
+
+    
+
+    <script type="module" src="./admin.js"></script>
+
+</body>
+</html>

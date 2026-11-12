@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart College Notice System</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body class="student-page">
+
+    <header class="college-header">
+        <div class="header-content">
+            <h1>MCA DepartmentNotice Board</h1>
+            <p>Official announcements, updates and important information</p>
+            <a href="./login.html" class="admin-link">
+                Staff Login
+            </a>
+        </div>
+    </header>
+
+    <main>
+        <h2>College Announcements</h2>
+
+        <div class="controls">
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search announcements..."
+            >
+
+            <select id="categoryFilter">
+                <option value="All">All Categories</option>
+                <option value="Examination">Examination</option>
+                <option value="Event">Event</option>
+                <option value="Circular">Circular</option>
+                <option value="Placement">Placement</option>
+                <option value="General">General</option>
+            </select>
+        </div>
+
+        <div id="noticeList">
+            Loading notices...
+        </div>
+    </main>
+
+    
+
+    <script type="module" src="./main.js"></script>
+</body>
+</html>
