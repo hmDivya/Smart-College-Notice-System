@@ -1,5 +1,3 @@
-# Smart-College-Notice-Alert-System
-Cloud-Based Smart College Notice and Alert System using Firebase
 # Smart College Notice and Alert System
 
 A cloud-based web application designed to simplify the publishing, management, and viewing of college announcements using Firebase.
